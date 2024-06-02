@@ -4,7 +4,7 @@ A assignment project for weDevs.
 
 ## TODO:
 
-- [ ] App Name, App Icon <br/>
+- [x] App Name, App Icon <br/>
 - [ ] Theme and Color Palette <br/>
 - [ ] Login(Sign In) UI <br/>
 - [ ] Sign Up UI <br/>
