@@ -6,7 +6,7 @@ A assignment project for weDevs.
 
 - [x] App Name, App Icon <br/>
 - [x] Theme and Color Palette <br/>
-- [ ] Login(Sign In) UI <br/>
+- [x] Login(Sign In) UI <br/>
 - [ ] Sign Up UI <br/>
 - [ ] Auth Flow API Integration <br/>
 - [ ] Unit Testing for Auth <br/>

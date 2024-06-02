@@ -12,6 +12,6 @@ class AppTheme {
       primary: Palette.primaryColor,
     ),
     scaffoldBackgroundColor: Palette.scaffoldBgColor,
-    textTheme: GoogleFonts.robotoTextTheme(),
+    primaryTextTheme: GoogleFonts.robotoTextTheme(),
   );
 }
