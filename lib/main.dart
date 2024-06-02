@@ -1,3 +1,4 @@
+import 'package:dokan/core/theme/app_themes.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -15,11 +16,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Dokan',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        scaffoldBackgroundColor: const Color(0xFFF8F8F8),
-        useMaterial3: true,
-      ),
+      theme: AppTheme.lightTheme,
+      themeMode: ThemeMode.light,
       routerDelegate: appRouter.routerDelegate,
       routeInformationProvider: appRouter.routeInformationProvider,
       routeInformationParser: appRouter.routeInformationParser,

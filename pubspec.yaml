@@ -1,5 +1,5 @@
 name: dokan
-description: "A new Flutter project."
+description: "A assignment project for weDevs."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
@@ -40,6 +40,7 @@ dependencies:
   go_router: ^14.1.0
   gap: ^3.0.1
   fpdart: ^1.1.0
+  google_fonts: ^6.2.1
 
 dev_dependencies:
   flutter_test:

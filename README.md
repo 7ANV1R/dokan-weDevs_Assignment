@@ -5,7 +5,7 @@ A assignment project for weDevs.
 ## TODO:
 
 - [x] App Name, App Icon <br/>
-- [ ] Theme and Color Palette <br/>
+- [x] Theme and Color Palette <br/>
 - [ ] Login(Sign In) UI <br/>
 - [ ] Sign Up UI <br/>
 - [ ] Auth Flow API Integration <br/>
