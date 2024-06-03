@@ -10,11 +10,16 @@ typedef FutureEitherBool = FutureEither<bool>;
 typedef FutureEitherString = FutureEither<String>;
 typedef FutureEitherInt = FutureEither<int>;
 
-Either<Failure, T> returnFailure<T>(String methodName, Object e, StackTrace st) {
+Either<Failure, T> returnFailure<T>({
+  required String methodName,
+  required StackTrace st,
+  Object? e,
+  String? message,
+}) {
   Logger.red('[$methodName] Error: ${getErrorMessage(e)} \nStackTrace: ${st.toString()}');
   return left(
     Failure(
-      message: getErrorMessage(e),
+      message: message ?? getErrorMessage(e),
       stackTrace: st,
     ),
   );

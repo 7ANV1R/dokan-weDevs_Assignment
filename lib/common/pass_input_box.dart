@@ -9,24 +9,45 @@ class PasswordInputBox extends HookWidget {
     this.controller,
     required this.hintText,
     required this.prefixAssetPath,
+    this.textInputAction,
+    this.keyboardType,
+    this.validator,
+    this.onChanged,
+    this.onFieldSubmitted,
   });
 
   final TextEditingController? controller;
   final String hintText, prefixAssetPath;
+
+  final TextInputAction? textInputAction;
+  final TextInputType? keyboardType;
+  final String? Function(String? value)? validator;
+  final void Function(String value)? onChanged, onFieldSubmitted;
 
   @override
   Widget build(BuildContext context) {
     final isPasswordVisible = useState(false);
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.transparent,
         borderRadius: BorderRadius.circular(10),
         boxShadow: Palette.primaryDropShadow,
       ),
       child: TextFormField(
+        controller: controller,
         obscureText: !isPasswordVisible.value,
+        textInputAction: textInputAction,
+        keyboardType: keyboardType,
+        validator: validator,
+        onChanged: onChanged,
+        onFieldSubmitted: onFieldSubmitted,
+        onTapOutside: (event) {
+          FocusScope.of(context).unfocus();
+        },
         decoration: InputDecoration(
           hintText: hintText,
+          fillColor: Colors.white,
+          filled: true,
           hintStyle: const TextStyle(
             color: Palette.lightFontColor,
           ),
@@ -55,7 +76,10 @@ class PasswordInputBox extends HookWidget {
             minWidth: 24,
             minHeight: 24,
           ),
-          border: InputBorder.none,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide.none,
+          ),
         ),
       ),
     );

@@ -26,7 +26,7 @@ class InputBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.transparent,
         borderRadius: BorderRadius.circular(10),
         boxShadow: Palette.primaryDropShadow,
       ),
@@ -42,6 +42,8 @@ class InputBox extends StatelessWidget {
         },
         decoration: InputDecoration(
           hintText: hintText,
+          fillColor: Colors.white,
+          filled: true,
           hintStyle: const TextStyle(
             color: Palette.lightFontColor,
           ),
@@ -58,7 +60,11 @@ class InputBox extends StatelessWidget {
             minWidth: 24,
             minHeight: 24,
           ),
-          border: InputBorder.none,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide.none,
+          ),
+          // rounded border
         ),
       ),
     );

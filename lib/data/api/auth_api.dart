@@ -1,15 +1,21 @@
 import 'dart:convert';
 
 import 'package:dokan/core/api_helper/future_either.dart';
+import 'package:dokan/core/ui_helper/logger.dart';
 import 'package:dokan/data/api/auth_endpoint.dart';
 import 'package:dokan/data/iapi/i_auth_api.dart';
 import 'package:dokan/data/model/auth/auth_response_model.dart';
 import 'package:fpdart/fpdart.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:http/http.dart' as http;
 
 import '../../core/api_helper/net_request_helper.dart';
 
-class AuthAPI implements IAuthAPI {
+final authAPIProvider = Provider<AuthAPI>((ref) {
+  return AuthAPI();
+});
+
+final class AuthAPI implements IAuthAPI {
   final http.Client _client;
 
   AuthAPI({
@@ -27,18 +33,22 @@ class AuthAPI implements IAuthAPI {
       final response = await _client.send(request);
       // decode response
       final decodedResponse = jsonDecode(await response.stream.bytesToString());
-
+      Logger.green('decodedResponse: $decodedResponse');
       if (response.statusCode == 200) {
         return right(AuthResponse.fromJson(decodedResponse));
       } else {
         return returnFailure(
-          '[AuthAPI][login]',
-          decodedResponse['message'] ?? 'Aw, Snap! Something went wrong.',
-          StackTrace.current,
+          methodName: "[AuthAPI][login]",
+          message: decodedResponse['message'] ?? 'Aw, Snap! Something went wrong.',
+          st: StackTrace.current,
         );
       }
     } catch (e, st) {
-      return returnFailure('[AuthAPI][login]', e, st);
+      return returnFailure(
+        methodName: "[AuthAPI][login]",
+        e: e,
+        st: st,
+      );
     }
   }
 
@@ -57,18 +67,24 @@ class AuthAPI implements IAuthAPI {
       });
 
       final response = await _client.send(request);
+      // decoded response
+      final decodedResponse = jsonDecode(await response.stream.bytesToString());
 
       if (response.statusCode == 200) {
         return right(null);
       } else {
         return returnFailure(
-          '[AuthAPI][register]',
-          'Failed to register',
-          StackTrace.current,
+          methodName: '[AuthAPI][register]',
+          message: decodedResponse['message'] ?? 'Aw, Snap! Something went wrong.',
+          st: StackTrace.current,
         );
       }
     } catch (e, st) {
-      return returnFailure('[AuthAPI][register]', e, st);
+      return returnFailure(
+        methodName: '[AuthAPI][register]',
+        e: e,
+        st: st,
+      );
     }
   }
 }
