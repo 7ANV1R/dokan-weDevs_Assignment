@@ -1,13 +1,14 @@
 import 'dart:convert';
 
-import '../../core/api_helper/future_either.dart';
-import '../../core/ui_helper/logger.dart';
-import 'auth_endpoint.dart';
-import '../iapi/i_auth_api.dart';
-import '../model/auth/auth_response_model.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:http/http.dart' as http;
+
+import '../../core/api_helper/future_either.dart';
+import '../../core/ui_helper/logger.dart';
+import '../iapi/i_auth_api.dart';
+import '../model/auth/auth_response_model.dart';
+import 'auth_endpoint.dart';
 
 final authAPIProvider = Provider<AuthAPI>((ref) {
   return AuthAPI();

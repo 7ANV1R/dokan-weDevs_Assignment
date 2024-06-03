@@ -14,4 +14,6 @@ class AssetConst {
   static const String cartIcon = '$_iconsPath/cart.png';
   static const String homeIcon = '$_iconsPath/home.png';
   static const String dashbaordIcon = '$_iconsPath/dashbaord.png';
+  static const String tuneIcon = '$_iconsPath/tune.png';
+  static const String downIcon = '$_iconsPath/down.png';
 }
