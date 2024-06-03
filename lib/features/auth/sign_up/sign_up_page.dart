@@ -1,17 +1,16 @@
-import 'package:flutter_hooks/flutter_hooks.dart';
-
-import '../../../core/const/asset_const.dart';
-import '../../../core/theme/palette.dart';
-import '../../../core/ui_helper/space_helper.dart';
-import '../../../core/ui_helper/ui_helper.dart';
-import '../../../routes/router.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../common/flat_btn.dart';
 import '../../../common/input_box.dart';
 import '../../../common/pass_input_box.dart';
+import '../../../core/const/asset_const.dart';
+import '../../../core/theme/palette.dart';
+import '../../../core/ui_helper/space_helper.dart';
+import '../../../core/ui_helper/ui_helper.dart';
+import '../../../routes/router.dart';
 import '../widgets/social_login_btn_row.dart';
 import 'controller/sign_up_controller.dart';
 import 'widgets/avatar_with_upload_btn.dart';

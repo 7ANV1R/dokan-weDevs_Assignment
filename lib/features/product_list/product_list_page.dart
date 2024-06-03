@@ -1,7 +1,7 @@
-import '../../data/services/shared_pref_services.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../data/services/shared_pref_services.dart';
 import '../layout/app_root.dart';
 
 class ProductListPage extends ConsumerWidget {
