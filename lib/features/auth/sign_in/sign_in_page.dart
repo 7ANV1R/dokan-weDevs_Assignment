@@ -1,4 +1,4 @@
-import 'package:dokan/features/auth/sign_in/controller/sign_in_controller.dart';
+import 'controller/sign_in_controller.dart';
 
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';

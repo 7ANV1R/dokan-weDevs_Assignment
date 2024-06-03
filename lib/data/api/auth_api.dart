@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import 'package:dokan/core/api_helper/future_either.dart';
-import 'package:dokan/core/ui_helper/logger.dart';
-import 'package:dokan/data/api/auth_endpoint.dart';
-import 'package:dokan/data/iapi/i_auth_api.dart';
-import 'package:dokan/data/model/auth/auth_response_model.dart';
+import '../../core/api_helper/future_either.dart';
+import '../../core/ui_helper/logger.dart';
+import 'auth_endpoint.dart';
+import '../iapi/i_auth_api.dart';
+import '../model/auth/auth_response_model.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:http/http.dart' as http;

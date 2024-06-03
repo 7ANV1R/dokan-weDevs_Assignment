@@ -1,4 +1,4 @@
-import 'package:dokan/core/ui_helper/ui_helper.dart';
+import '../../core/ui_helper/ui_helper.dart';
 import 'package:flutter/material.dart';
 
 class Unimplemented extends StatelessWidget {

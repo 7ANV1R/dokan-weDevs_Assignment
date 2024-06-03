@@ -1,4 +1,4 @@
-import 'package:dokan/core/api_helper/future_either.dart';
+import '../../core/api_helper/future_either.dart';
 
 import '../model/auth/auth_response_model.dart';
 

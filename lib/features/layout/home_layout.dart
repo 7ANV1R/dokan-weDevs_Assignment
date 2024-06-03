@@ -1,6 +1,6 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
-import 'package:dokan/core/const/asset_const.dart';
-import 'package:dokan/core/theme/palette.dart';
+import '../../core/const/asset_const.dart';
+import '../../core/theme/palette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
