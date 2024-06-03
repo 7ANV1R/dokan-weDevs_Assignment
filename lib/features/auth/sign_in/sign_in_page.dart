@@ -27,9 +27,10 @@ class _SignInPageState extends ConsumerState<SignInPage> {
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+    final isLoading = useState(false);
+    final signUpMessage = useState<Object?>(null);
     final userNameController = useTextEditingController();
     final passwordController = useTextEditingController();
-    final isLoading = useState(false);
 
     /// listen to the state of the `signInControllerProvider` for showing loading and error
     ref.listen(signInControllerProvider, (prev, next) async {
@@ -77,8 +78,21 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                   textAlign: TextAlign.center,
                 ),
 
+                // [Sign Up Message]
+                if (signUpMessage.value != null) ...[
+                  kGapSpaceS,
+                  Text(
+                    '${signUpMessage.value}.\nPlease login now.',
+                    style: context.textTheme.labelLarge!.copyWith(
+                      color: Palette.secondaryColor,
+                      fontWeight: FontWeight.w400,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+
                 /// [Form Fields]
-                kGapSpaceXXXL,
+                kGapSpaceXXL,
                 InputBox(
                   controller: userNameController,
                   hintText: 'Username',
@@ -145,8 +159,13 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                 /// [Create new account]
                 kGapSpaceXXL,
                 TextButton(
-                  onPressed: () {
-                    context.pushNamed(RouteOf.registerPage);
+                  onPressed: () async {
+                    final res = await context.pushNamed(RouteOf.registerPage);
+                    if (res != null) {
+                      signUpMessage.value = res;
+                    } else {
+                      signUpMessage.value = null;
+                    }
                   },
                   child: Text(
                     'Create New Account',

@@ -53,7 +53,7 @@ final class AuthAPI implements IAuthAPI {
   }
 
   @override
-  FutureEitherVoid register(
+  FutureEitherString signup(
       {required String username, required String email, required String password}) async {
     try {
       final request = sendRequest(
@@ -71,7 +71,7 @@ final class AuthAPI implements IAuthAPI {
       final decodedResponse = jsonDecode(await response.stream.bytesToString());
 
       if (response.statusCode == 200) {
-        return right(null);
+        return right(decodedResponse['message'] ?? 'User registered successfully');
       } else {
         return returnFailure(
           methodName: '[AuthAPI][register]',

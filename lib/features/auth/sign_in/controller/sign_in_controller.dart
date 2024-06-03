@@ -38,7 +38,6 @@ class SignInController extends Notifier<SignInState> {
   void signIn({required SignInPayload payload}) async {
     state = const SignInState(state: SignInStateType.loading, res: null);
 
-    // send otp
     final api = ref.read(authAPIProvider);
     final res = await api.login(
       username: payload.userName,
