@@ -9,8 +9,6 @@ import 'package:fpdart/fpdart.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:http/http.dart' as http;
 
-import '../../core/api_helper/net_request_helper.dart';
-
 final authAPIProvider = Provider<AuthAPI>((ref) {
   return AuthAPI();
 });
@@ -25,16 +23,13 @@ final class AuthAPI implements IAuthAPI {
   @override
   FutureEither<AuthResponse> login({required String username, required String password}) async {
     try {
-      final request = sendRequest(
-        url: "${AuthEndpoint.login}?username=$username&password=$password",
-        method: ReqMethod.post,
-      );
+      final url = '${AuthEndpoint.login}?username=$username&password=$password';
+      final apiRes = await _client.post(Uri.parse(url));
 
-      final response = await _client.send(request);
       // decode response
-      final decodedResponse = jsonDecode(await response.stream.bytesToString());
+      final decodedResponse = jsonDecode(apiRes.body);
       Logger.green('decodedResponse: $decodedResponse');
-      if (response.statusCode == 200) {
+      if (apiRes.statusCode == 200) {
         return right(AuthResponse.fromJson(decodedResponse));
       } else {
         return returnFailure(
@@ -56,21 +51,18 @@ final class AuthAPI implements IAuthAPI {
   FutureEitherString signup(
       {required String username, required String email, required String password}) async {
     try {
-      final request = sendRequest(
-        url: AuthEndpoint.register,
-        method: ReqMethod.post,
-      );
-      request.body = jsonEncode({
+      const url = AuthEndpoint.register;
+      final body = jsonEncode({
         'username': username,
         'email': email,
         'password': password,
       });
+      final apiRes = await _client.post(Uri.parse(url), body: body);
 
-      final response = await _client.send(request);
       // decoded response
-      final decodedResponse = jsonDecode(await response.stream.bytesToString());
+      final decodedResponse = jsonDecode(apiRes.body);
 
-      if (response.statusCode == 200) {
+      if (apiRes.statusCode == 200) {
         return right(decodedResponse['message'] ?? 'User registered successfully');
       } else {
         return returnFailure(

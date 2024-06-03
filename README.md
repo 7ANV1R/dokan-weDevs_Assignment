@@ -9,8 +9,8 @@ A assignment project for weDevs.
 - [x] Login(Sign In) UI <br/>
 - [x] Sign Up UI <br/>
 - [x] Home Layout with Bottom Nav <br/>
-- [ ] Auth Flow API Integration <br/>
-- [ ] Unit Testing for Auth <br/>
+- [x] Auth Flow API Integration <br/>
+- [x] Unit Testing for Auth <br/>
 - [ ] Product List UI <br/>
 - [ ] Product List Filter UI <br/>
 - [ ] Fetch Product List from asset json <br/>
