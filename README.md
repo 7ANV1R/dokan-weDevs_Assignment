@@ -8,6 +8,7 @@ A assignment project for weDevs.
 - [x] Theme and Color Palette <br/>
 - [x] Login(Sign In) UI <br/>
 - [x] Sign Up UI <br/>
+- [x] Home Layout with Bottom Nav <br/>
 - [ ] Auth Flow API Integration <br/>
 - [ ] Unit Testing for Auth <br/>
 - [ ] Product List UI <br/>

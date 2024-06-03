@@ -29,4 +29,12 @@ class Palette {
       Color(0xFFF2709C),
     ],
   );
+  static const Gradient reversePrimaryGradient = LinearGradient(
+    begin: Alignment.bottomRight,
+    end: Alignment.topLeft,
+    colors: [
+      Color(0xFFFF9472),
+      Color(0xFFF2709C),
+    ],
+  );
 }

@@ -4,6 +4,10 @@ import 'router.dart';
 
 final GoRouter appRouter = GoRouter(
   routes: [
+    // GoRoute(
+    //   path: '/',
+    //   builder: (context, state) => const HomeLayoutPage(),
+    // ),
     GoRoute(
       path: '/',
       builder: (context, state) => const SignInPage(),
