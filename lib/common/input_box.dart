@@ -1,5 +1,6 @@
-import 'package:dokan/core/theme/palette.dart';
 import 'package:flutter/material.dart';
+
+import '../core/theme/palette.dart';
 
 class InputBox extends StatelessWidget {
   const InputBox({

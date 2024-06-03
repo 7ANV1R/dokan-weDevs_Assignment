@@ -39,7 +39,7 @@ class PasswordInputBox extends HookWidget {
               padding: const EdgeInsets.only(right: 16),
               child: Icon(
                 isPasswordVisible.value ? Icons.visibility : Icons.visibility_off,
-                color: Palette.lightFontColor,
+                color: isPasswordVisible.value ? Palette.primaryColor : Palette.lightFontColor,
               ),
             ),
           ),

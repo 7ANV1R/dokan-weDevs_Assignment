@@ -1,8 +1,9 @@
-import 'package:dokan/common/flat_btn.dart';
-import 'package:dokan/core/const/asset_const.dart';
-import 'package:dokan/core/theme/palette.dart';
-import 'package:dokan/core/ui_helper/space_helper.dart';
-import 'package:dokan/core/ui_helper/ui_helper.dart';
+import '../../../common/flat_btn.dart';
+import '../../../core/const/asset_const.dart';
+import '../../../core/theme/palette.dart';
+import '../../../core/ui_helper/space_helper.dart';
+import '../../../core/ui_helper/ui_helper.dart';
+import '../../../routes/router.dart';
 import 'package:flutter/material.dart';
 
 import '../../../common/input_box.dart';
@@ -92,12 +93,14 @@ class SignInPage extends StatelessWidget {
                 /// [Create new account]
                 kGapSpaceXXL,
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.pushNamed(RouteOf.registerPage);
+                  },
                   child: Text(
                     'Create New Account',
-                    style: context.textTheme.titleLarge!.copyWith(
+                    style: context.textTheme.titleMedium!.copyWith(
                       color: Palette.regularFontColor,
-                      fontWeight: FontWeight.w300,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                 )

@@ -9,4 +9,5 @@ class AssetConst {
   // icons
   static const String mailIcon = '$_iconsPath/mail.png';
   static const String passwordIcon = '$_iconsPath/password.png';
+  static const String userIcon = '$_iconsPath/user.png';
 }

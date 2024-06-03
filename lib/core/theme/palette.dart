@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart' show BoxShadow, Color, Offset;
+import 'package:flutter/material.dart' show Alignment, BoxShadow, Color, Gradient, LinearGradient, Offset;
 
 class Palette {
   static const primaryColor = Color(0xFFF75F55);
@@ -20,4 +20,13 @@ class Palette {
       blurRadius: 4,
     ),
   ];
+
+  static const Gradient primaryGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [
+      Color(0xFFFF9472),
+      Color(0xFFF2709C),
+    ],
+  );
 }

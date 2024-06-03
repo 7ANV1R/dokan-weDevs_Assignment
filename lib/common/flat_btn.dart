@@ -1,6 +1,6 @@
-import 'package:dokan/core/ui_helper/ui_helper.dart';
 import 'package:flutter/material.dart';
 
+import '../core/ui_helper/ui_helper.dart';
 import 'loader.dart';
 
 class FlatBtn extends StatelessWidget {

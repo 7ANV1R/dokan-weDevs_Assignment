@@ -1,8 +1,9 @@
-import 'package:dokan/core/theme/palette.dart';
-import 'package:dokan/core/ui_helper/space_helper.dart';
-import 'package:dokan/core/ui_helper/ui_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
+
+import '../../../core/theme/palette.dart';
+import '../../../core/ui_helper/space_helper.dart';
+import '../../../core/ui_helper/ui_helper.dart';
 
 class SocialLoginBtnRow extends StatelessWidget {
   const SocialLoginBtnRow({
