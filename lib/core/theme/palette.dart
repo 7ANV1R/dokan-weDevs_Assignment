@@ -13,6 +13,13 @@ class Palette {
   static const lightFontColor = Color(0xFFA4A9AF);
   static const regularFontColor = Color(0xFF383C40);
 
+  // error colors
+  static const errorColor = Color(0xFFD32F2F);
+  static const errorBgColor = Color(0xFFF7D0D0);
+  // success colors
+  static const successColor = Color(0xFF388E3C);
+  static const successBgColor = Color(0xFFD8F8DA);
+
   static List<BoxShadow>? primaryDropShadow = [
     BoxShadow(
       color: Palette.primaryShadowColor.withOpacity(0.1),

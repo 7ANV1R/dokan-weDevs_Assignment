@@ -41,7 +41,7 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
               /// [Form Fields]
               kGapSpaceXXL,
               const InputBox(
-                hintText: 'Name',
+                hintText: 'Username',
                 prefixAssetPath: AssetConst.userIcon,
               ),
               kGapSpaceL,

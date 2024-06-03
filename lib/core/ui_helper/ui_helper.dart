@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:top_snackbar_flutter/custom_snack_bar.dart';
-import 'package:top_snackbar_flutter/top_snack_bar.dart';
+import 'package:flutter_html/flutter_html.dart';
 
 Size getSize(BuildContext context) {
   return MediaQuery.of(context).size;
@@ -27,9 +26,14 @@ void showColoredSnackBar(
   ScaffoldMessenger.of(context).removeCurrentSnackBar();
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
-      content: Text(
-        msg,
-        style: getTextTheme(context).labelLarge!.copyWith(color: textColor ?? Colors.white),
+      content: Html(
+        data: msg,
+        style: {
+          "body": Style(
+            padding: HtmlPaddings.zero,
+            margin: Margins.zero,
+          ),
+        },
       ),
       duration: duration ?? const Duration(milliseconds: 4000),
       backgroundColor: color ?? context.scheme.primary,
@@ -37,36 +41,11 @@ void showColoredSnackBar(
   );
 }
 
-showErrorSnackbar(
-    {required BuildContext context, String? title, String? message, SnackBarPosition? snackBarPosition}) {
-  showTopSnackBar(
-    Overlay.of(context),
-    CustomSnackBar.error(
-      icon: const Icon(Icons.error_outline, color: Colors.white10, size: 120),
-      backgroundColor: Colors.red,
-      maxLines: 4,
-      message: message ?? "Aw snap! Something went wrong.",
-      textAlign: TextAlign.left,
-    ),
-    snackBarPosition: snackBarPosition ?? SnackBarPosition.bottom,
-  );
-}
-
-showSuccessSnackbar(
-    {required BuildContext context, String? title, String? message, SnackBarPosition? snackBarPosition}) {
-  showTopSnackBar(
-    Overlay.of(context),
-    CustomSnackBar.success(
-      icon: const Icon(Icons.sentiment_very_satisfied, color: Colors.white10, size: 120),
-      backgroundColor: Colors.green,
-      maxLines: 4,
-      message: message ?? "Aw snap! Something went wrong.",
-      textAlign: TextAlign.left,
-    ),
-    displayDuration: const Duration(milliseconds: 2500),
-    snackBarPosition: snackBarPosition ?? SnackBarPosition.top,
-  );
-}
+// String parseHtmlString(String htmlString) {
+//   final document = parse(htmlString);
+//   final String parsedString = parse(document.body!.text).documentElement!.text;
+//   return parsedString;
+// }
 
 extension ContextExtension on BuildContext {
   ColorScheme get scheme => Theme.of(this).colorScheme;

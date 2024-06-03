@@ -38,10 +38,14 @@ class _SignInPageState extends ConsumerState<SignInPage> {
       } else if (next.state == SignInStateType.error) {
         // show error snackbar
         isLoading.value = false;
-        showErrorSnackbar(
+        showColoredSnackBar(
           context: context,
-          message: next.res.toString(),
+          color: Palette.errorColor,
+          msg: next.res.toString(),
         );
+      } else if (next.state == SignInStateType.success) {
+        isLoading.value = false;
+        // we can show a login success snackbar here if we want
       }
     });
     return Scaffold(
