@@ -1,24 +1,27 @@
-import '../../common/loader.dart';
-import '../../core/theme/palette.dart';
+import '../../common/not_implemented.dart';
 import '../../core/ui_helper/ui_helper.dart';
 import 'controller/product_list_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:persistent_header_adaptive/persistent_header_adaptive.dart';
 
 import 'widgets/filter_bar.dart';
+import 'widgets/product_card_shimmer.dart';
 import 'widgets/product_item_card.dart';
+
+final sortIDProvider = StateProvider<int>((ref) {
+  return 0;
+});
 
 class ProductListPage extends HookConsumerWidget {
   const ProductListPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final selectedFilter = useState(3);
-    final productList = ref.watch(allProductListProvider(selectedFilter.value));
+    final selectedFilter = ref.watch(sortIDProvider);
+    final productList = ref.watch(allProductListProvider(selectedFilter));
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -31,8 +34,7 @@ class ProductListPage extends HookConsumerWidget {
         actions: [
           IconButton(
             onPressed: () {
-              // navigate to profile page
-              // context.push(ProfilePage());
+              showNotImplementedSnackbar(context);
             },
             icon: const Icon(EvaIcons.search),
           )
@@ -70,12 +72,19 @@ class ProductListPage extends HookConsumerWidget {
               );
             });
           },
-          loading: () => const Center(
-            child: PrimaryLoader(
-              color: Palette.primaryColor,
-              size: 40,
-            ),
-          ),
+          loading: () {
+            return AlignedGridView.count(
+              physics: const NeverScrollableScrollPhysics(),
+              padding: const EdgeInsets.all(16),
+              crossAxisCount: 2,
+              mainAxisSpacing: 12,
+              crossAxisSpacing: 12,
+              itemCount: 10,
+              itemBuilder: (context, index) {
+                return const ProductCardShimmer();
+              },
+            );
+          },
           error: (error, stack) => Center(
             child: Text('Error: $error'),
           ),

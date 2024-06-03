@@ -16,7 +16,7 @@ final class ProductAPI implements IProductAPI {
   FutureEither<List<Product>> fetchAllProduct({required String filterID}) async {
     try {
       // load data from asset json file with filter
-      await Future.delayed(const Duration(seconds: 3));
+      await Future.delayed(const Duration(milliseconds: 1500));
       final String response = await rootBundle.loadString('assets/json/response.json');
       final decodedResponse = jsonDecode(response);
       final List<Product> products = (decodedResponse as List).map((e) => Product.fromJson(e)).toList();

@@ -6,6 +6,7 @@ import '../../../core/theme/palette.dart';
 import '../../../core/ui_helper/space_helper.dart';
 import '../../../core/ui_helper/ui_helper.dart';
 import '../../../data/model/product/product_model.dart';
+import 'rating_star_row.dart';
 
 class ProductItemCard extends StatelessWidget {
   const ProductItemCard({
@@ -112,38 +113,21 @@ class ProductItemCard extends StatelessWidget {
             ),
           ),
           kGapSpaceS,
+
+          // for checking sort is working or not
+          // Text(formatDateTime(item.dateCreatedGmt)),
         ],
       ),
     );
   }
-
-  Widget generateStarRow(String averageRating) {
-    final double rating = double.parse(averageRating);
-    final int fullStar = rating.floor();
-    final bool halfStar = rating - fullStar >= 0.5;
-    final int emptyStar = 5 - fullStar - (halfStar ? 1 : 0);
-
-    return Row(
-      children: [
-        for (int i = 0; i < fullStar; i++)
-          const Icon(
-            Icons.star,
-            color: Colors.amber,
-            size: 16,
-          ),
-        if (halfStar)
-          const Icon(
-            Icons.star_half,
-            color: Colors.amber,
-            size: 16,
-          ),
-        for (int i = 0; i < emptyStar; i++)
-          const Icon(
-            Icons.star_border,
-            color: Colors.amber,
-            size: 16,
-          ),
-      ],
-    );
-  }
 }
+
+// String formatDateTime(String gmtTime) {
+//   DateTime dateTimeGmt = DateTime.parse(gmtTime);
+
+//   // Convert the DateTime to local time
+//   DateTime localDateTime = dateTimeGmt.toLocal();
+
+//   String formattedLocalDate = DateFormat('h:mm a, dd MMM yyyy').format(localDateTime);
+//   return formattedLocalDate;
+// }

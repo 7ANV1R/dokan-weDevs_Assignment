@@ -11,9 +11,9 @@ A assignment project for weDevs.
 - [x] Home Layout with Bottom Nav <br/>
 - [x] Auth Flow API Integration <br/>
 - [x] Unit Testing for Auth <br/>
-- [ ] Product List UI <br/>
-- [ ] Product List Filter UI <br/>
-- [ ] Fetch Product List from asset json <br/>
+- [x] Product List UI <br/>
+- [x] Product List Filter UI <br/>
+- [x] Fetch Product List from asset json <br/>
 - [ ] My Account UI <br/>
 - [ ] My Account API Integration <br/>
 - [ ] Update Profile UI <br/>
