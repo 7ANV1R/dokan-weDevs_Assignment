@@ -14,7 +14,7 @@ A assignment project for weDevs.
 - [x] Product List UI <br/>
 - [x] Product List Filter UI <br/>
 - [x] Fetch Product List from asset json <br/>
-- [ ] My Account UI <br/>
+- [x] My Account UI <br/>
 - [ ] My Account API Integration <br/>
 - [ ] Update Profile UI <br/>
 - [ ] Update Profile API Integration <br/>

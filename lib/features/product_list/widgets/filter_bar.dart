@@ -1,4 +1,3 @@
-import '../product_list_page.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:icons_plus/icons_plus.dart';
@@ -6,8 +5,8 @@ import 'package:icons_plus/icons_plus.dart';
 import '../../../core/const/asset_const.dart';
 import '../../../core/theme/palette.dart';
 import '../../../core/ui_helper/space_helper.dart';
-
 import '../../../core/ui_helper/ui_helper.dart';
+import '../product_list_page.dart';
 import 'sort_by_bottom_sheet.dart';
 import 'sort_preset.dart';
 
@@ -21,7 +20,7 @@ class FilterBar extends HookConsumerWidget {
     final selectedSortValue = ref.watch(sortIDProvider);
     return Container(
       padding: const EdgeInsets.all(16),
-      margin: const EdgeInsets.all(16),
+      margin: const EdgeInsets.fromLTRB(16, 16, 16, 4),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),

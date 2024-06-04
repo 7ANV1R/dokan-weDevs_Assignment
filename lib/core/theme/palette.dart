@@ -11,6 +11,7 @@ class Palette {
 
   // font colors
   static const lightFontColor = Color(0xFFA4A9AF);
+  static const lightGreyFontColor = Color(0xFFDEE0E2);
   static const regularFontColor = Color(0xFF383C40);
 
   // error colors

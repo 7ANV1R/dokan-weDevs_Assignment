@@ -8,7 +8,7 @@ import '../../core/api_helper/future_either.dart';
 import '../../core/ui_helper/logger.dart';
 import '../iapi/i_auth_api.dart';
 import '../model/auth/auth_response_model.dart';
-import 'auth_endpoint.dart';
+import 'endpoint.dart';
 
 final authAPIProvider = Provider<AuthAPI>((ref) {
   return AuthAPI();
@@ -24,7 +24,7 @@ final class AuthAPI implements IAuthAPI {
   @override
   FutureEither<AuthResponse> login({required String username, required String password}) async {
     try {
-      final url = '${AuthEndpoint.login}?username=$username&password=$password';
+      final url = '${APIEndpoint.login}?username=$username&password=$password';
       final apiRes = await _client.post(Uri.parse(url));
 
       // decode response
@@ -52,7 +52,7 @@ final class AuthAPI implements IAuthAPI {
   FutureEitherString signup(
       {required String username, required String email, required String password}) async {
     try {
-      const url = AuthEndpoint.register;
+      const url = APIEndpoint.register;
       final body = jsonEncode({
         'username': username,
         'email': email,

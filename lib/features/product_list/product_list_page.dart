@@ -1,12 +1,12 @@
-import '../../common/not_implemented.dart';
-import '../../core/ui_helper/ui_helper.dart';
-import 'controller/product_list_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:persistent_header_adaptive/persistent_header_adaptive.dart';
 
+import '../../common/not_implemented.dart';
+import '../../core/ui_helper/ui_helper.dart';
+import 'controller/product_list_controller.dart';
 import 'widgets/filter_bar.dart';
 import 'widgets/product_card_shimmer.dart';
 import 'widgets/product_item_card.dart';

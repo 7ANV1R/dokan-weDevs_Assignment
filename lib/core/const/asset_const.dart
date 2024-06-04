@@ -5,6 +5,7 @@ class AssetConst {
   // image
   static const String dokanIcon = '$_imagePath/dokan_icon.png';
   static const String dokanLogo = '$_imagePath/dokan_logo.png';
+  static const String avatar = '$_imagePath/temp_avatar.png';
 
   // icons
   static const String mailIcon = '$_iconsPath/mail.png';
@@ -16,4 +17,6 @@ class AssetConst {
   static const String dashbaordIcon = '$_iconsPath/dashbaord.png';
   static const String tuneIcon = '$_iconsPath/tune.png';
   static const String downIcon = '$_iconsPath/down.png';
+  static const String bellIcon = '$_iconsPath/bell.png';
+  static const String heartIcon = '$_iconsPath/heart.png';
 }

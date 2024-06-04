@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:dokan/data/api/auth_api.dart';
-import 'package:dokan/data/api/auth_endpoint.dart';
+import 'package:dokan/data/api/endpoint.dart';
 import 'package:flutter/material.dart' show debugPrint;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
@@ -31,7 +31,7 @@ void main() {
         () async {
           const username = 'testusername';
           const password = '12345678';
-          const url = '${AuthEndpoint.login}?username=$username&password=$password';
+          const url = '${APIEndpoint.login}?username=$username&password=$password';
           final jsonResponse = {
             "token": "testjwttoken",
             "user_email": "xxxxxxxxx@gmail.com",
@@ -65,7 +65,7 @@ void main() {
         () async {
           const username = 'wrongusername';
           const password = '12345678';
-          const url = '${AuthEndpoint.login}?username=$username&password=$password';
+          const url = '${APIEndpoint.login}?username=$username&password=$password';
 
           final jsonResponse = {
             "code": "[jwt_auth] invalid_username",
@@ -100,7 +100,7 @@ void main() {
         () async {
           const username = 'testusername';
           const password = 'wrongpassword';
-          const url = '${AuthEndpoint.login}?username=$username&password=$password';
+          const url = '${APIEndpoint.login}?username=$username&password=$password';
 
           final jsonResponse = {
             "code": "[jwt_auth] incorrect_password",
@@ -139,7 +139,7 @@ void main() {
           const username = 'testusername';
           const email = 'testusername@gmail.com';
           const password = '12345678';
-          const url = AuthEndpoint.register;
+          const url = APIEndpoint.register;
           final body = jsonEncode(
             {
               'username': username,

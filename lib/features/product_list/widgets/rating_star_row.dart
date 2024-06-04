@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart' show Colors, Icon, Icons, Row;
+import 'package:flutter/material.dart' show Colors, CrossAxisAlignment, Icon, Icons, Row;
 
 Row generateStarRow(String averageRating) {
   final double rating = double.parse(averageRating);
@@ -7,6 +7,7 @@ Row generateStarRow(String averageRating) {
   final int emptyStar = 5 - fullStar - (halfStar ? 1 : 0);
 
   return Row(
+    crossAxisAlignment: CrossAxisAlignment.end,
     children: [
       for (int i = 0; i < fullStar; i++)
         const Icon(

@@ -1,11 +1,12 @@
 import 'dart:convert';
 
-import '../../core/api_helper/future_either.dart';
-import '../iapi/i_product_api.dart';
-import '../model/product/product_model.dart';
 import 'package:flutter/services.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../core/api_helper/future_either.dart';
+import '../iapi/i_product_api.dart';
+import '../model/product/product_model.dart';
 
 final productAPIProvider = Provider<ProductAPI>((ref) {
   return ProductAPI();

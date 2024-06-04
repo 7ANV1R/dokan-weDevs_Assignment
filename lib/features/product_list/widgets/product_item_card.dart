@@ -70,20 +70,6 @@ class ProductItemCard extends StatelessWidget {
             child: RichText(
               text: TextSpan(
                 children: [
-                  // if regular price is not empty or regular price and price is same
-                  // then only show price
-                  // other wise show both regular price and price
-                  // regular price will be strike through
-                  if (item.regularPrice.isNotEmpty && item.regularPrice != item.price) ...[
-                    TextSpan(
-                      text: "\$${item.regularPrice}",
-                      style: context.textTheme.bodyLarge!.copyWith(
-                        color: Colors.grey,
-                        decoration: TextDecoration.lineThrough,
-                      ),
-                    ),
-                    const WidgetSpan(child: SizedBox(width: 8)),
-                  ],
                   TextSpan(
                     text: "\$${item.price}",
                     style: context.textTheme.bodyLarge!.copyWith(
@@ -91,6 +77,20 @@ class ProductItemCard extends StatelessWidget {
                       fontWeight: FontWeight.w900,
                     ),
                   ),
+                  // if regular price is not empty or regular price and price is same
+                  // then only show price
+                  // other wise show both regular price and price
+                  // regular price will be strike through
+                  if (item.regularPrice.isNotEmpty && item.regularPrice != item.price) ...[
+                    const WidgetSpan(child: SizedBox(width: 8)),
+                    TextSpan(
+                      text: "\$${item.regularPrice}",
+                      style: context.textTheme.bodyLarge!.copyWith(
+                        color: Colors.grey,
+                        decoration: TextDecoration.lineThrough,
+                      ),
+                    ),
+                  ],
                 ],
               ),
             ),
@@ -100,11 +100,12 @@ class ProductItemCard extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12),
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 // rating star row
                 generateStarRow(item.avgRating),
                 Text(
-                  '(${item.ratingCount})',
+                  ' ${item.avgRating} (${item.ratingCount})',
                   style: context.textTheme.bodySmall!.copyWith(
                     color: Colors.grey,
                   ),
