@@ -19,3 +19,4 @@ A assignment project for weDevs.
 - [ ] Update Profile UI <br/>
 - [ ] Update Profile API Integration <br/>
 - [ ] More Unit Test <br/>
+- [x] Native Splash <br/>
