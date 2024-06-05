@@ -51,12 +51,16 @@ final class AuthAPI implements IAuthAPI {
       {required String username, required String email, required String password}) async {
     try {
       const url = APIEndpoint.register;
+      // header
+      final headers = <String, String>{
+        'Content-Type': 'application/json',
+      };
       final body = jsonEncode({
         'username': username,
         'email': email,
         'password': password,
       });
-      final apiRes = await _client.post(Uri.parse(url), body: body);
+      final apiRes = await _client.post(Uri.parse(url), body: body, headers: headers);
 
       // decoded response
       final decodedResponse = jsonDecode(apiRes.body);

@@ -5,7 +5,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:http/http.dart' as http;
 
 import '../../core/api_helper/future_either.dart';
-import '../../core/ui_helper/logger.dart';
 import '../iapi/i_profile_api.dart';
 import '../model/profile/user_profile.dart';
 import '../services/shared_pref_services.dart';
@@ -60,11 +59,11 @@ final class ProfileAPI implements IProfileAPI {
   }
 
   @override
-  FutureEither<UserProfile> fetchProfile() async {
+  FutureEither<UserProfile> fetchProfile({
+    required String token,
+    required String id,
+  }) async {
     try {
-      final id = SharedPrefServices.getUserID();
-      final token = SharedPrefServices.getToken();
-
       final url = '${APIEndpoint.updateUser}/$id';
       // header
       final headers = <String, String>{
@@ -77,6 +76,7 @@ final class ProfileAPI implements IProfileAPI {
       );
 
       final decodedResponse = jsonDecode(apiRes.body);
+
       if (apiRes.statusCode == 200) {
         return right(
           UserProfile.fromJson(decodedResponse),
@@ -123,11 +123,9 @@ final class ProfileAPI implements IProfileAPI {
         body: body,
         headers: headers,
       );
-      Logger.green("body: $body");
 
       final decodedResponse = jsonDecode(apiRes.body);
       if (apiRes.statusCode == 200) {
-        Logger.green(apiRes.body.toString());
         return right(
           null,
         );

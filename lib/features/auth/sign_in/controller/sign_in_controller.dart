@@ -46,7 +46,7 @@ class SignInController extends Notifier<SignInState> {
     );
     res.fold(
       (err) {
-        state = SignInState(state: SignInStateType.error, res: err.message);
+        state = SignInState(state: SignInStateType.error, res: err.message.split('.').first);
       },
       (authResponse) async {
         /// i had to call another api to get user id sad :)
@@ -59,7 +59,8 @@ class SignInController extends Notifier<SignInState> {
             );
         idResponse.fold(
           (idResponseErr) {
-            state = SignInState(state: SignInStateType.error, res: idResponseErr.message);
+            // split response by first . and return first value
+            state = SignInState(state: SignInStateType.error, res: idResponseErr.message.split('.').first);
           },
           (id) async {
             await SharedPrefServices.setLoginCredential(authResponse.token, id.toString());

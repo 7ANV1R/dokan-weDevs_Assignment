@@ -37,10 +37,9 @@ class _SignInPageState extends ConsumerState<SignInPage> {
       } else if (next.state == SignInStateType.error) {
         // show error snackbar
         isLoading.value = false;
-        showColoredSnackBar(
+        showErrorSnackbar(
           context: context,
-          color: Palette.errorColor,
-          msg: next.res.toString(),
+          message: next.res.toString(),
         );
       } else if (next.state == SignInStateType.success) {
         isLoading.value = false;
@@ -118,8 +117,8 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                 kGapSpaceL,
                 GestureDetector(
                   onTap: () {
-                    showColoredSnackBar(
-                        context: context, msg: "Can't remember your password? Unlucky TBH 💀");
+                    showErrorSnackbar(
+                        context: context, message: "Can't remember your password? Unlucky TBH 💀");
                   },
                   child: Text(
                     'Forgot Password?',
@@ -158,12 +157,6 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                 kGapSpaceXXL,
                 TextButton(
                   onPressed: () async {
-                    // remove current snackbar if exist
-                    // this is to prevent "Duplicate GlobalKey detected in widget tree" error
-                    // im working on this issue
-                    // right now this is the best solution -_-
-                    ScaffoldMessenger.of(context).removeCurrentSnackBar();
-
                     // push register page
                     final res = await context.pushNamed(RouteOf.registerPage);
                     if (res != null) {

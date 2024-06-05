@@ -33,7 +33,7 @@ dependencies:
   flutter_spinkit: ^5.2.1
 
   # for showing html msg response from api
-  flutter_html: ^3.0.0-beta.2
+  html: ^0.15.4
 
   # utils
   shared_preferences: ^2.2.3
@@ -47,6 +47,7 @@ dependencies:
   intl: ^0.19.0
   flutter_native_splash: ^2.4.0
   dotted_border: ^2.1.0
+  top_snackbar_flutter: ^3.1.0
 
 dev_dependencies:
   flutter_test:

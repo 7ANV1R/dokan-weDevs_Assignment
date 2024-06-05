@@ -6,7 +6,10 @@ abstract class IProfileAPI {
     required String token,
   });
 
-  FutureEither<UserProfile> fetchProfile();
+  FutureEither<UserProfile> fetchProfile({
+    required String token,
+    required String id,
+  });
 
   FutureEitherVoid updateProfile({
     required String firstName,

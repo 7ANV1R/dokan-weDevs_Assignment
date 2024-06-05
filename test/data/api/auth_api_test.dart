@@ -1,15 +1,15 @@
 import 'dart:convert';
 
+import 'package:dokan/core/api_helper/failure.dart';
 import 'package:dokan/data/api/auth_api.dart';
 import 'package:dokan/data/api/endpoint.dart';
+import 'package:dokan/data/model/auth/auth_response_model.dart';
 import 'package:flutter/material.dart' show debugPrint;
 import 'package:flutter_test/flutter_test.dart';
-import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
 import 'package:mocktail/mocktail.dart';
 
-Client client = Client();
-
-class MockHttpClient extends Mock implements Client {}
+class MockHttpClient extends Mock implements http.Client {}
 
 void main() {
   late AuthAPI repository;
@@ -27,7 +27,7 @@ void main() {
     () {
       /// [Login]
       test(
-        '200 Login',
+        '200 Login [Successful Login]',
         () async {
           const username = 'testusername';
           const password = '12345678';
@@ -44,8 +44,8 @@ void main() {
               Uri.parse(url),
             ),
           ).thenAnswer(
-            (invocation) async {
-              return Response(jsonEncode(jsonResponse), 200, reasonPhrase: 'OK');
+            (_) async {
+              return http.Response(jsonEncode(jsonResponse), 200, reasonPhrase: 'OK');
             },
           );
           final res = await repository.login(
@@ -53,10 +53,11 @@ void main() {
             password: password,
           );
           debugPrint(res.fold(
-            (l) => "Test Result for // 200 Login : Passed\nError: ${l.message}",
-            (r) => "Test Result for // 200 Login : Failed\nResponse: ${r.token}",
+            (l) => "Test Result for // 200 Login : Failed\nError: ${l.message}",
+            (r) => "Test Result for // 200 Login : Passed\nResponse: ${r.token}",
           ));
           expect(res.isRight(), true);
+          expect(res.fold((l) => null, (r) => r), isA<AuthResponse>());
         },
       );
 
@@ -79,8 +80,8 @@ void main() {
               Uri.parse(url),
             ),
           ).thenAnswer(
-            (invocation) async {
-              return Response(jsonEncode(jsonResponse), 403, reasonPhrase: 'Forbidden');
+            (_) async {
+              return http.Response(jsonEncode(jsonResponse), 403, reasonPhrase: 'Forbidden');
             },
           );
           final res = await repository.login(
@@ -92,6 +93,7 @@ void main() {
             (r) => "Test Result for // 403 Forbidden [Wrong username] : Failed\nResponse: ${r.token}",
           ));
           expect(res.isLeft(), true);
+          expect(res.fold((l) => l, (r) => null), isA<Failure>());
         },
       );
 
@@ -114,8 +116,8 @@ void main() {
               Uri.parse(url),
             ),
           ).thenAnswer(
-            (invocation) async {
-              return Response(jsonEncode(jsonResponse), 403, reasonPhrase: 'Forbidden');
+            (_) async {
+              return http.Response(jsonEncode(jsonResponse), 403, reasonPhrase: 'Forbidden');
             },
           );
           final res = await repository.login(
@@ -129,6 +131,7 @@ void main() {
           ));
 
           expect(res.isLeft(), true);
+          expect(res.fold((l) => l, (r) => null), isA<Failure>());
         },
       );
 
@@ -140,13 +143,7 @@ void main() {
           const email = 'testusername@gmail.com';
           const password = '12345678';
           const url = APIEndpoint.register;
-          final body = jsonEncode(
-            {
-              'username': username,
-              'email': email,
-              'password': password,
-            },
-          );
+
           final jsonResponse = {
             "code": 200,
             "message": "User 'testusername' Registration was Successful",
@@ -155,11 +152,12 @@ void main() {
           when(
             () => mockHttpClient.post(
               Uri.parse(url),
-              body: body,
+              body: any(named: 'body'),
+              headers: any(named: 'headers'),
             ),
           ).thenAnswer(
-            (invocation) async {
-              return Response(jsonEncode(jsonResponse), 200, reasonPhrase: 'OK');
+            (_) async {
+              return http.Response(jsonEncode(jsonResponse), 200, reasonPhrase: 'OK');
             },
           );
           final res = await repository.signup(
@@ -168,10 +166,11 @@ void main() {
             email: email,
           );
           debugPrint(res.fold(
-            (l) => "Test Result for // 200 SignUp : Failed\nError: ${l.message}",
+            (l) => "Test Result for // 200 SignUp : Failed\nError: ${l.toString()}",
             (r) => "Test Result for // 200 SignUp : Passed\nResponse: $r",
           ));
           expect(res.isRight(), true);
+          expect(res.fold((l) => null, (r) => r), isA<String>());
         },
       );
     },

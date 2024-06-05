@@ -40,10 +40,9 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
       } else if (next.state == SignUpStateType.error) {
         // show error snackbar
         isLoading.value = false;
-        showColoredSnackBar(
+        showErrorSnackbar(
           context: context,
-          color: Palette.errorColor,
-          msg: next.res.toString(),
+          message: next.res.toString(),
         );
       } else if (next.state == SignUpStateType.success) {
         isLoading.value = false;
@@ -150,9 +149,7 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
 
               /// [Social Login Buttons]
               kGapSpaceXXL,
-              const SocialLoginBtnRow(
-                isBusy: true,
-              ),
+              const SocialLoginBtnRow(),
 
               /// [Sign In Button]
               kGapSpaceXXL,

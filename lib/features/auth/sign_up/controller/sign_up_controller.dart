@@ -45,12 +45,12 @@ class SignUpController extends Notifier<SignUpState> {
     final api = ref.read(authAPIProvider);
     final res = await api.signup(
       username: payload.userName,
-      email: payload.userName,
+      email: payload.email,
       password: payload.password,
     );
     res.fold(
       (l) {
-        state = SignUpState(state: SignUpStateType.error, res: l.message);
+        state = SignUpState(state: SignUpStateType.error, res: l.message.split('.').first);
       },
       (r) async {
         state = SignUpState(state: SignUpStateType.success, res: r);

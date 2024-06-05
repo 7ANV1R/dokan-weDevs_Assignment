@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 class UserProfile {
   final int id;
   final String userName;
@@ -25,6 +26,11 @@ class UserProfile {
       lastName: json['last_name'],
       email: json['email'],
     );
+  }
+
+  @override
+  String toString() {
+    return 'UserProfile(id: $id, userName: $userName, name: $name, firstName: $firstName, lastName: $lastName, email: $email)';
   }
 }
 

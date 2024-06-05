@@ -35,6 +35,13 @@ class SharedPrefServices {
     await setUserID(userID);
   }
 
+  // get both token and id
+  static (String? userID, String? token) getIdAndToken() {
+    final token = getToken();
+    final userID = getUserID();
+    return (userID, token);
+  }
+
   static Future<void> removeLoginCredential() async {
     await removeToken();
     await removeUserID();
