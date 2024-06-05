@@ -92,7 +92,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                 kGapSpaceXXL,
                 InputBox(
                   controller: userNameController,
-                  hintText: 'Username',
+                  hintText: 'Username / Email',
                   textInputAction: TextInputAction.next,
                   prefixAssetPath: AssetConst.userIcon,
                   validator: (value) {
