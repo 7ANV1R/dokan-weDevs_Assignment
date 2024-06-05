@@ -1,6 +1,7 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../data/api/auth_api.dart';
+import '../../../../data/api/profile_api.dart';
 import '../../../../data/services/shared_pref_services.dart';
 import '../../../layout/app_root.dart';
 
@@ -44,13 +45,28 @@ class SignInController extends Notifier<SignInState> {
       password: payload.password,
     );
     res.fold(
-      (l) {
-        state = SignInState(state: SignInStateType.error, res: l.message);
+      (err) {
+        state = SignInState(state: SignInStateType.error, res: err.message);
       },
-      (r) async {
-        await SharedPrefServices.setToken(r.token);
-        ref.invalidate(userTokenProvider);
-        state = const SignInState(state: SignInStateType.success, res: null);
+      (authResponse) async {
+        /// i had to call another api to get user id sad :)
+        ///
+        /// if i save the user id in shared pref during sign in then
+        /// i can avoid calling this `user id fetch` api for profile and update user api
+
+        final idResponse = await ref.read(profileAPIProvider).fetchIdByToken(
+              token: authResponse.token,
+            );
+        idResponse.fold(
+          (idResponseErr) {
+            state = SignInState(state: SignInStateType.error, res: idResponseErr.message);
+          },
+          (id) async {
+            await SharedPrefServices.setLoginCredential(authResponse.token, id.toString());
+            ref.invalidate(userTokenProvider);
+            state = const SignInState(state: SignInStateType.success, res: null);
+          },
+        );
       },
     );
   }

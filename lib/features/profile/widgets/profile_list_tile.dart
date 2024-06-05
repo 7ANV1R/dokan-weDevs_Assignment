@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 
 import '../../../core/const/asset_const.dart';
 import '../../../core/theme/palette.dart';
+import '../../../data/model/profile/user_profile.dart';
 import 'expandable_tile.dart';
 import 'update_profile_widget.dart';
 
 class ProfileSettingsTile extends StatelessWidget {
   const ProfileSettingsTile({
     super.key,
+    required this.profile,
   });
+  final UserProfile profile;
 
   @override
   Widget build(BuildContext context) {
@@ -19,35 +22,37 @@ class ProfileSettingsTile extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         boxShadow: Palette.primaryDropShadow,
       ),
-      child: const Column(
+      child: Column(
         children: [
           ExpandableTile(
             title: "Account",
             iconPath: AssetConst.userIcon,
             child: Column(
               children: [
-                UpdateProfileWidget(),
+                UpdateProfileWidget(
+                  profile: profile,
+                ),
               ],
             ),
           ),
-          Divider(
+          const Divider(
             color: Palette.lightGreyFontColor,
           ),
-          ExpandableTile(
+          const ExpandableTile(
             title: "Password",
             iconPath: AssetConst.passwordIcon,
           ),
-          Divider(
+          const Divider(
             color: Palette.lightGreyFontColor,
           ),
-          ExpandableTile(
+          const ExpandableTile(
             title: "Notification",
             iconPath: AssetConst.bellIcon,
           ),
-          Divider(
+          const Divider(
             color: Palette.lightGreyFontColor,
           ),
-          ExpandableTile(
+          const ExpandableTile(
             title: "Wishlist",
             iconPath: AssetConst.heartIcon,
           ),

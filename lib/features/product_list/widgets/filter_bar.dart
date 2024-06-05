@@ -35,7 +35,7 @@ class FilterBar extends HookConsumerWidget {
                   child: RichText(
                     text: TextSpan(children: [
                       TextSpan(
-                        text: 'Currently Sorted By:\n',
+                        text: 'List sorted by:\n',
                         style: context.textTheme.labelMedium!.copyWith(
                           color: Palette.lightFontColor,
                         ),
@@ -43,7 +43,7 @@ class FilterBar extends HookConsumerWidget {
                       TextSpan(
                         text: sortText(selectedSortValue),
                         style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                              color: Palette.regularFontColor,
+                              color: Palette.lightFontColor,
                             ),
                       ),
                     ]),
@@ -85,12 +85,12 @@ class FilterBar extends HookConsumerWidget {
                 Text(
                   'Sort by',
                   style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                        color: Palette.lightFontColor,
+                        color: selectedSortValue != 0 ? Palette.successColor : Palette.lightFontColor,
                       ),
                 ),
-                const Icon(
+                Icon(
                   EvaIcons.chevron_down_outline,
-                  color: Palette.lightFontColor,
+                  color: selectedSortValue != 0 ? Palette.successColor : Palette.lightFontColor,
                 )
               ],
             ),

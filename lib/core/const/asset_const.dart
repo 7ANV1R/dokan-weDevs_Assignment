@@ -1,6 +1,7 @@
 class AssetConst {
   static const String _imagePath = 'assets/images';
   static const String _iconsPath = 'assets/icons';
+  static const String _gifsPath = 'assets/gifs';
 
   // image
   static const String dokanIcon = '$_imagePath/dokan_icon.png';
@@ -19,4 +20,7 @@ class AssetConst {
   static const String downIcon = '$_iconsPath/down.png';
   static const String bellIcon = '$_iconsPath/bell.png';
   static const String heartIcon = '$_iconsPath/heart.png';
+
+  // gifs
+  static const String errorGif = '$_gifsPath/error.gif';
 }

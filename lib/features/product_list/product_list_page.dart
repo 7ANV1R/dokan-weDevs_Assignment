@@ -53,9 +53,11 @@ class ProductListPage extends HookConsumerWidget {
         },
         body: productList.when(
           data: (res) {
-            return res.fold((l) {
+            return res.fold((failure) {
               return Center(
-                child: Text('Error: ${l.toString()}'),
+                child: Text(
+                  'Error: ${failure.toString()}',
+                ),
               );
             }, (product) {
               return AlignedGridView.count(
@@ -73,6 +75,7 @@ class ProductListPage extends HookConsumerWidget {
             });
           },
           loading: () {
+            /// showing shimmer effect while `loading`
             return AlignedGridView.count(
               physics: const NeverScrollableScrollPhysics(),
               padding: const EdgeInsets.all(16),

@@ -158,6 +158,13 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                 kGapSpaceXXL,
                 TextButton(
                   onPressed: () async {
+                    // remove current snackbar if exist
+                    // this is to prevent "Duplicate GlobalKey detected in widget tree" error
+                    // im working on this issue
+                    // right now this is the best solution -_-
+                    ScaffoldMessenger.of(context).removeCurrentSnackBar();
+
+                    // push register page
                     final res = await context.pushNamed(RouteOf.registerPage);
                     if (res != null) {
                       signUpMessage.value = res;

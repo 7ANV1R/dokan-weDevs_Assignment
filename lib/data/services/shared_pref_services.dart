@@ -1,5 +1,8 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
+/// use `flutter_secure_storage` for sensitive data
+/// for now we are using `shared_preferences` for simplicity
+
 class SharedPrefServices {
   static SharedPreferences? _prefs;
 
@@ -18,4 +21,22 @@ class SharedPrefServices {
   // get token
   static String? getToken() => _getString('token');
   static Future<void> removeToken() async => _remove('token');
+
+  // set id
+  static Future<void> setUserID(String token) async => await _setString('userID', token);
+
+  // get id
+  static String? getUserID() => _getString('userID');
+  static Future<void> removeUserID() async => _remove('userID');
+
+  // helper
+  static Future<void> setLoginCredential(String token, String userID) async {
+    await setToken(token);
+    await setUserID(userID);
+  }
+
+  static Future<void> removeLoginCredential() async {
+    await removeToken();
+    await removeUserID();
+  }
 }

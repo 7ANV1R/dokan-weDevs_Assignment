@@ -150,7 +150,9 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
 
               /// [Social Login Buttons]
               kGapSpaceXXL,
-              const SocialLoginBtnRow(),
+              const SocialLoginBtnRow(
+                isBusy: true,
+              ),
 
               /// [Sign In Button]
               kGapSpaceXXL,

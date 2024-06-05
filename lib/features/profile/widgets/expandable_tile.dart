@@ -1,7 +1,7 @@
-import 'package:dokan/core/const/asset_const.dart';
-import 'package:dokan/core/theme/palette.dart';
-import 'package:dokan/core/ui_helper/space_helper.dart';
-import 'package:dokan/core/ui_helper/ui_helper.dart';
+import '../../../core/const/asset_const.dart';
+import '../../../core/theme/palette.dart';
+import '../../../core/ui_helper/space_helper.dart';
+import '../../../core/ui_helper/ui_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';

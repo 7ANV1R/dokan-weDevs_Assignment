@@ -51,7 +51,7 @@ class PasswordInputBox extends HookWidget {
           hintStyle: const TextStyle(
             color: Palette.lightFontColor,
           ),
-          contentPadding: const EdgeInsets.all(24),
+          contentPadding: const EdgeInsets.all(20),
           suffixIcon: GestureDetector(
             onTap: () {
               isPasswordVisible.value = !isPasswordVisible.value;

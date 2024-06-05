@@ -23,7 +23,6 @@ void showColoredSnackBar(
     Color? color,
     Color? textColor,
     Duration? duration}) {
-  ScaffoldMessenger.of(context).removeCurrentSnackBar();
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       content: Html(

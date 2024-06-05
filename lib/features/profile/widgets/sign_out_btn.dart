@@ -1,4 +1,4 @@
-import 'package:dokan/core/ui_helper/ui_helper.dart';
+import '../../../core/ui_helper/ui_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -16,7 +16,7 @@ class SignOutBtn extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return GestureDetector(
       onTap: () async {
-        await SharedPrefServices.removeToken();
+        await SharedPrefServices.removeLoginCredential();
         ref.invalidate(userTokenProvider);
       },
       child: Container(

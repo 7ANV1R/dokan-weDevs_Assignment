@@ -59,7 +59,7 @@ class FlatBtn extends StatelessWidget {
         child: InkWell(
           borderRadius: BorderRadius.circular(radius),
           onTap: onTap,
-          splashColor: scheme.outline,
+          splashColor: scheme.outlineVariant.withOpacity(0.3),
           splashFactory: InkSplash.splashFactory,
           child: Center(
             // child: label,

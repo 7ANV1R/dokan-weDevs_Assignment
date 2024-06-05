@@ -8,7 +8,9 @@ import '../../../core/ui_helper/ui_helper.dart';
 class SocialLoginBtnRow extends StatelessWidget {
   const SocialLoginBtnRow({
     super.key,
+    this.isBusy = false,
   });
+  final bool isBusy;
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +19,7 @@ class SocialLoginBtnRow extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
+            if (isBusy) return;
             showColoredSnackBar(
               context: context,
               color: const Color(0xFF3B5998),
@@ -32,6 +35,8 @@ class SocialLoginBtnRow extends StatelessWidget {
         kGapSpaceM,
         GestureDetector(
           onTap: () {
+            if (isBusy) return;
+
             showColoredSnackBar(
               context: context,
               color: Colors.redAccent,

@@ -47,7 +47,7 @@ class InputBox extends StatelessWidget {
           hintStyle: const TextStyle(
             color: Palette.lightFontColor,
           ),
-          contentPadding: const EdgeInsets.all(24),
+          contentPadding: const EdgeInsets.all(20),
           prefixIcon: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Image.asset(

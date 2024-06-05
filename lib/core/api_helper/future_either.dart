@@ -15,8 +15,12 @@ Either<Failure, T> returnFailure<T>({
   required StackTrace st,
   Object? e,
   String? message,
+  bool? log = true,
 }) {
-  Logger.red('[$methodName] Error: ${getErrorMessage(e)} \nStackTrace: ${st.toString()}');
+  if (log!) {
+    Logger.red('[$methodName] Error: ${getErrorMessage(e)} \nStackTrace: ${st.toString()}');
+  }
+
   return left(
     Failure(
       message: message ?? getErrorMessage(e),

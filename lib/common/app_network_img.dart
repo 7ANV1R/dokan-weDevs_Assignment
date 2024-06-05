@@ -38,7 +38,7 @@ class AppNetworkImage extends StatelessWidget {
                   onPlay: (controller) => controller.repeat(),
                 )
                 .shimmer(
-                  duration: const Duration(seconds: 2),
+                  duration: const Duration(milliseconds: 1300),
                 ),
           ),
         ),

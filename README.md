@@ -14,9 +14,10 @@ A assignment project for weDevs.
 - [x] Product List UI <br/>
 - [x] Product List Filter UI <br/>
 - [x] Fetch Product List from asset json <br/>
-- [x] My Account UI <br/>
-- [ ] My Account API Integration <br/>
-- [ ] Update Profile UI <br/>
-- [ ] Update Profile API Integration <br/>
-- [ ] More Unit Test <br/>
 - [x] Native Splash <br/>
+- [x] My Account UI <br/>
+- [x] My Account API Integration <br/>
+- [x] Update Profile UI <br/>
+- [x] Update Profile API Integration <br/>
+- [ ] Review Review Review <br/>
+- [ ] More Unit Test <br/>
