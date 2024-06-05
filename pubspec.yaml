@@ -3,7 +3,7 @@ description: "A assignment project for weDevs."
 
 publish_to: "none"
 
-version: 1.1.1+1
+version: 7.1.1+711
 
 environment:
   sdk: ">=3.3.4 <4.0.0"

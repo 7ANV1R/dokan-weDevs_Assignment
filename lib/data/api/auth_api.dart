@@ -69,14 +69,14 @@ final class AuthAPI implements IAuthAPI {
         return right(decodedResponse['message'] ?? 'User registered successfully');
       } else {
         return returnFailure(
-          methodName: '[AuthAPI][register]',
+          methodName: '[AuthAPI][signup]',
           message: decodedResponse['message'] ?? 'Aw, Snap! Something went wrong.',
           st: StackTrace.current,
         );
       }
     } catch (e, st) {
       return returnFailure(
-        methodName: '[AuthAPI][register]',
+        methodName: '[AuthAPI][signup]',
         e: e,
         st: st,
       );

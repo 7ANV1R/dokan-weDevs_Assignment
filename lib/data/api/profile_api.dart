@@ -131,7 +131,7 @@ final class ProfileAPI implements IProfileAPI {
         );
       } else {
         return returnFailure(
-          methodName: "[ProfileAPI][fetchProfile]",
+          methodName: "[ProfileAPI][updateProfile]",
           message:
               decodedResponse["message"] ?? 'Aw, Snap! Fetching profile failed. ERR: ${apiRes.statusCode}',
           st: StackTrace.current,
@@ -139,7 +139,7 @@ final class ProfileAPI implements IProfileAPI {
       }
     } catch (e, st) {
       return returnFailure(
-        methodName: "[ProfileAPI][fetchProfile]",
+        methodName: "[ProfileAPI][updateProfile]",
         e: e,
         st: st,
       );

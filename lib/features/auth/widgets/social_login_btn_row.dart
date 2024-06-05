@@ -20,8 +20,7 @@ class SocialLoginBtnRow extends StatelessWidget {
           onTap: () {
             showErrorSnackbar(
               context: context,
-              message:
-                  "Hey! Spending too much time on Facebook?\nActually we are lazy to implement facebook login for now. 🤦‍♂️",
+              message: "Hey! Spending too much time on Facebook? Not good for you. 👀",
             );
           },
           child: const SocialMediaIcon(
@@ -35,8 +34,7 @@ class SocialLoginBtnRow extends StatelessWidget {
             showSuccessSnackbar(
               context: context,
               snackBarPosition: SnackBarPosition.bottom,
-              message:
-                  "Nahh! Forget Google, ChatGPT is the future.\nActually we are lazy to implement Google login for now. 🤦‍♂️",
+              message: "Nahh! Forget Google, ChatGPT is the future. No need to sign in with Google. 👀",
             );
           },
           child: const SocialMediaIcon(
