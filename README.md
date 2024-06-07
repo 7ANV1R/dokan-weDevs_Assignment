@@ -27,6 +27,13 @@ To build apk you need to run this following commands:
 
 Removing the --split-per-abi flag results in a fat APK that contains your code compiled for all the target ABIs. Such APKs are larger in size than their split counterparts, causing the user to download native binaries that are not applicable to their device’s architecture.
 
+## Download APK
+
+You can download the latest APK from our GitHub releases page or from Google Drive:
+
+- **[GitHub Release](https://github.com/7ANV1R/dokan-weDevs_Assignment/releases/tag/initial_release)**: Click the link to go to the releases page where you can find the latest APK.
+- **[Google Drive](https://drive.google.com/drive/folders/1YjfAT24h0P5GSfuslWx3wP4EcrJVUtkn?usp=sharing)**: Click the link to download the APK from Google Drive.
+
 ## File Structure
 
 Within the download you'll find the following directories and files:
@@ -45,6 +52,7 @@ root/
 │   ├── routes
 │   └── main.dart
 ├── test
+├── integration_test
 ├── appname.iml
 ├── pubspec.lock
 ├── pubspec.yaml
@@ -54,11 +62,13 @@ root/
 
 ## Running Tests 🧪
 
+- For unit test run this
+
 ```sh
  flutter test
 ```
 
-### added few unit test for now, i'll add some integration test and widget test later. (hopefully 👀)
+- For integration test you have to go **integration_test** folder then launch a flow on a device or emulator
 
 ---
 
@@ -84,6 +94,6 @@ root/
 
 ---
 
-## [Developed for WeDevs](https://wedevs.com/)
+### [Developed for WeDevs](https://wedevs.com/)
 
-![WeDevs](https://wedevs.com/img/logos/wedevs/wedevs-logo-colored.svg)
+![wedevs_logo](./assets/images/wedevs.png)

@@ -1,3 +1,4 @@
+import '../../key/sign_in_key.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -38,6 +39,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
         // show error snackbar
         isLoading.value = false;
         showErrorSnackbar(
+          key: AppsWidgetKeys.signInErrorSnackbar,
           context: context,
           message: next.res.toString(),
         );
@@ -47,6 +49,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
       }
     });
     return Scaffold(
+      key: AppsWidgetKeys.signInPage,
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(32),
@@ -91,6 +94,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                 /// [Form Fields]
                 kGapSpaceXXL,
                 InputBox(
+                  key: AppsWidgetKeys.signInUsername,
                   controller: userNameController,
                   hintText: 'Username / Email',
                   textInputAction: TextInputAction.next,
@@ -104,6 +108,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                 ),
                 kGapSpaceL,
                 PasswordInputBox(
+                  key: AppsWidgetKeys.signInPassword,
                   controller: passwordController,
                   hintText: 'Password',
                   prefixAssetPath: AssetConst.passwordIcon,
@@ -133,6 +138,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                 /// [Login Button]
                 kGapSpaceXXL,
                 FlatBtn(
+                  key: AppsWidgetKeys.signInBtn,
                   onTap: () => handleLogin(
                     username: userNameController.text,
                     password: passwordController.text,

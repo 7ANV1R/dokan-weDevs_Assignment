@@ -1,3 +1,4 @@
+import '../key/sign_in_key.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -17,6 +18,7 @@ class AppRoot extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final token = ref.watch(userTokenProvider);
     return Scaffold(
+      key: AppsWidgetKeys.appRoot,
       body: token != null ? const HomeLayoutPage() : const SignInPage(),
     );
   }

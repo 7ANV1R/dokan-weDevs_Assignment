@@ -22,10 +22,15 @@ TextTheme getTextTheme(BuildContext context) {
 }
 
 showErrorSnackbar(
-    {required BuildContext context, String? title, String? message, SnackBarPosition? snackBarPosition}) {
+    {required BuildContext context,
+    Key? key,
+    String? title,
+    String? message,
+    SnackBarPosition? snackBarPosition}) {
   showTopSnackBar(
     Overlay.of(context),
     CustomSnackBar.error(
+      key: key,
       icon: const Icon(Icons.error_outline, color: Colors.white10, size: 120),
       backgroundColor: Palette.errorColor,
       maxLines: 3,

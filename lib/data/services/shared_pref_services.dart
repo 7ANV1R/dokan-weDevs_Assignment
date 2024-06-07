@@ -14,6 +14,7 @@ class SharedPrefServices {
   static Future<bool> _setString(String key, String value) async => await _prefs!.setString(key, value);
   static String? _getString(String key) => _prefs!.getString(key);
   static Future<bool> _remove(String key) async => await _prefs!.remove(key);
+  static Future<bool> clear() async => await _prefs!.clear();
 
   // set token
   static Future<void> setToken(String token) async => await _setString('token', token);
