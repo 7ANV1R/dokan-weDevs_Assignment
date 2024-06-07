@@ -29,10 +29,10 @@ Removing the --split-per-abi flag results in a fat APK that contains your code c
 
 ## Download APK
 
-You can download the latest APK from our GitHub releases page or from Google Drive:
+You can download the latest APK from GitHub releases page or from Google Drive:
 
-- **[GitHub Release](https://github.com/7ANV1R/dokan-weDevs_Assignment/releases/tag/initial_release)**: Click the link to go to the releases page where you can find the latest APK.
-- **[Google Drive](https://drive.google.com/drive/folders/1YjfAT24h0P5GSfuslWx3wP4EcrJVUtkn?usp=sharing)**: Click the link to download the APK from Google Drive.
+- **[GitHub Release](https://github.com/7ANV1R/dokan-weDevs_Assignment/releases/)**
+- **[Google Drive](https://drive.google.com/drive/folders/1YjfAT24h0P5GSfuslWx3wP4EcrJVUtkn?usp=sharing)**
 
 ## File Structure
 
